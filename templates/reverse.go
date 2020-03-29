@@ -11,7 +11,7 @@ import (
 )
 
 func FUNC_DELETE(){
-    os.Remove(os.Args[1])
+    os.Remove(os.Args[0])
 }
 
 func FUNC_SLEEP(){
