@@ -136,12 +136,12 @@ func (self Generator) compile(template string){
     if (self.shrink){
         ld_flags = "-w -s"
     }
-    out, err := exec.Command("env", fmt.Sprintf("GOOS=%s", self.platform), 
+    out, err := exec.Command("env", fmt.Sprintf("GOOS=%s", self.platform),
                             fmt.Sprintf("GOARCH=%s", self.arch),
-                            "go", "build", "-o", self.name, 
+                            "go", "build", "-o", self.name,
                              "-ldflags", ld_flags, "final.go").Output()
     if string(out) != "" {
-        fmt.Println("[*] Build message: %s", out) 
+	    fmt.Println("[*] Build message: ", out)
     }
     exit_on_error("[BUILD ERROR]", err)
 
